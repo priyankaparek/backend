@@ -24,6 +24,12 @@ app.use("/api/user", userRoutes)
 app.use("/api/product", productRoutes)
 app.use("/api/order", orderRoutes)
 app.use("/api/finalStep", excelRoute)
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://spectacular-cuchufli-20c718.netlify.app");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
+  
 
 app.listen(port, () => {
 console.log(`Server listening at http://localhost:${port}`)
